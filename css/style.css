@@ -1,0 +1,13 @@
+body{
+    background-color: #fe8c00;
+}
+
+/*.container{
+    background: linear-gradient(#f83600, #fe8c00);
+}
+*/
+h1{
+    text-align: center;
+    color: #fff;
+    font-family: 'lato', sans-serif;
+}
