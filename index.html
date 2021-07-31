@@ -12,24 +12,33 @@
 <body>
     <div class="container">
         <h1>Create a new carousel project</h1>
-        <div class="owl-carousel owl-theme cor">
-            <div class="item"><img src="./img/expo-1.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-2.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-3.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-4.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-5.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-6.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-7.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-8.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-9.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-10.jpg" alt="Dragon-Ball"></div>
-            <div class="item"><img src="./img/expo-11.jpg" alt="Dragon-Ball"></div>        
+        <div class="owl-carousel owl-theme imagens">
+            
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        function recuperalist(){
+            let recuperalist = JSON.parse(localStorage.getItem("lista")) || []
+            for(list of recuperalist){
+                listarimg(list)
+            }
+        }
+
+        function listarimg(img){
+            const divimg = document.querySelector(".imagens")
+            var imgtag = document.createElement("div")
+            imgtag.classList.add("item")
+            var carrosselimg = document.createElement("img")
+            carrosselimg.setAttribute("src", img.img)
+
+            imgtag.append(carrosselimg);
+            divimg.append(imgtag);
+        }
+        recuperalist()
+
         $('.owl-carousel').owlCarousel({
     loop:true,
     margin:20,
